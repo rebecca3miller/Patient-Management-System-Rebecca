@@ -94,5 +94,36 @@ public class Main {
         // Testing removing a patient that is not in the list
         System.out.println("\nRemoving Patient ID 99:");
         patientList.removePatient(99);
+
+        // Test removing from an empty queue
+        System.out.println("\nTesting empty queue:");
+
+        PatientQueue testQueue = new PatientQueue();
+        testQueue.dequeue();
+
+        // Test filling the queue
+        System.out.println("\nTesting full queue:");
+
+        for (int i = 1; i <= 100; i++) {
+            testQueue.enqueue(new Patient(i, "Patient" + i, "Checkup"));
+        }
+
+        // Adding one more patient
+        System.out.println("\nAdding patient 101:");
+        testQueue.enqueue(new Patient(101, "Patient101", "Checkup"));
+
+        // Testing circular queue
+        System.out.println("\nTesting circular queue:");
+
+        // Remove two patients
+        testQueue.dequeue();
+        testQueue.dequeue();
+
+        // Add two patients
+        testQueue.enqueue(new Patient(102, "Mark", "Fever"));
+        testQueue.enqueue(new Patient(103, "Abby", "Neck Pain"));
+
+        System.out.println("\nPatients after adding:");
+        testQueue.displayQueue();
     }
 }
