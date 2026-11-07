@@ -56,5 +56,21 @@ public class Main {
         // Display patients backwards
         System.out.println("\nRemaining patients in reverse order:");
         patientList.displayPatientsBackward();
+
+        // Remove the first patient
+        System.out.println("\nRemoving Patient ID 4:");
+        patientList.removePatient(4);
+
+        // Display remaining patient in the list
+        System.out.println("\nRemaining Patients:");
+        patientList.displayPatients();
+
+        // Remove the last patient
+        System.out.println("\nRemoving Patient ID 6:");
+        patientList.removePatient(6);
+
+        // Checking if list is empty
+        System.out.println("\nPatients after removal");
+        patientList.displayPatients();
     }
 }
