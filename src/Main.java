@@ -80,5 +80,19 @@ public class Main {
         // Add a new patient after the list is empty
         System.out.println("\nAdding new patient:");
 
-        Patient patient7 = new Patient(7, "Sarah", "Headache");}
+        Patient patient7 = new Patient(7, "Emily", "Stomach Pain");
+        patientList.addPatient(patient7);
+
+        // Display patients
+        System.out.println("\nPatients in the list:");
+        patientList.displayPatients();
+
+        // Display patients backwards
+        System.out.println("\nPatients in reverse order:");
+        patientList.displayPatientsBackward();
+
+        // Testing removing a patient that is not in the list
+        System.out.println("\nRemoving Patient ID 99:");
+        patientList.removePatient(99);
+    }
 }
