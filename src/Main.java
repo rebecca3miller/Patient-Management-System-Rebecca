@@ -72,5 +72,13 @@ public class Main {
         // Checking if list is empty
         System.out.println("\nPatients after removal");
         patientList.displayPatients();
-    }
+
+        // Test removing a patient that does not exist
+        System.out.println("\nRemoving Patient ID 10:");
+        patientList.removePatient(10);
+
+        // Add a new patient after the list is empty
+        System.out.println("\nAdding new patient:");
+
+        Patient patient7 = new Patient(7, "Sarah", "Headache");}
 }
