@@ -45,4 +45,16 @@ public class PatientHistoryList {
             System.out.println(current.history);
         }
     }
+
+    // Move to the previous patient history record
+    public void prevRecord() {
+        if (isEmpty()) {
+            System.out.println("Patient History is Empty");
+        }  else if (current.prev == null) {
+            System.out.println("Already at the oldest record");
+        }  else {
+            current = current.prev;
+            System.out.println(current.history);
+        }
+    }
 }
