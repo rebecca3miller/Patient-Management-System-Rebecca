@@ -30,4 +30,32 @@ public class PatientDoublyLinkedList {
         }
         size++;
     }
+
+    // Display patients in the list
+    public void displayPatients() {
+        if (isEmpty()) {
+            System.out.println("Patient list is empty");
+        } else {
+            PatientNode tempNode = head;
+
+            while (tempNode != null) {
+                System.out.println(tempNode.patient);
+                tempNode = tempNode.next;
+            }
+        }
+    }
+
+    // Display patients backwards
+    public void displayPatientsBackward() {
+        if (isEmpty()) {
+            System.out.println("Patient list is empty");
+        } else {
+            PatientNode tempNode = tail;
+
+            while (tempNode != null) {
+                System.out.println(tempNode.patient);
+                tempNode = tempNode.prev;
+            }
+        }
+    }
 }

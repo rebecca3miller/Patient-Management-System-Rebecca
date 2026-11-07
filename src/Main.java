@@ -26,5 +26,23 @@ public class Main {
         // Display remaining patients
         System.out.println("\nRemaining Patients:");
         patientQueue.displayQueue();
+
+        // Test Doubly Linked List
+        System.out.println("\nDoubly Linked List");
+
+        PatientDoublyLinkedList patientList = new PatientDoublyLinkedList();
+
+        // Add patients to the list
+        patientList.addPatient(new Patient(4, "Claire", "Nausea"));
+        patientList.addPatient(new Patient(5, "Sarah", "Cold"));
+        patientList.addPatient(new Patient(6, "John", "Fever"));
+
+        // Display patients
+        System.out.println("\nPatients in the list:");
+        patientList.displayPatients();
+
+        // Display patients backwards
+        System.out.println("\nPatients in reverse order:");
+        patientList.displayPatientsBackward();
     }
 }
