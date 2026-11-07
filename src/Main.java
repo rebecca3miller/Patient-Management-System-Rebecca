@@ -1,6 +1,9 @@
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
         // Create patient queue
         PatientQueue patientQueue = new PatientQueue();
@@ -143,5 +146,91 @@ public class Main {
         System.out.println("\nPatients after emergency insertion");
         emergencyQueue.displayQueue();
 
+        // Create patient history list
+        PatientHistoryList historyList = new PatientHistoryList();
+
+        // Adding 10 patient history records
+        historyList.addHistory(new PatientHistory("2025-01-10", "Flu", "Rest and fluids"));
+        historyList.addHistory(new PatientHistory("2025-02-15", "Migraine", "Prescribed medication"));
+        historyList.addHistory(new PatientHistory("2025-03-20", "Stomach pain", "Diet changes"));
+        historyList.addHistory(new PatientHistory("2025-04-12", "Skin rash", "Topical cream"));
+        historyList.addHistory(new PatientHistory("2025-05-18", "Eye irritation", "Eye drops"));
+        historyList.addHistory(new PatientHistory("2025-06-22", "Checkup", "Routine checkup"));
+        historyList.addHistory(new PatientHistory("2025-07-14", "Seasonal allergies", "Allergy medication"));
+        historyList.addHistory(new PatientHistory("2025-08-09", "Headache", "Pain medication"));
+        historyList.addHistory(new PatientHistory("2025-09-25", "Chest pain", "Respiratory therapy"));
+        historyList.addHistory(new PatientHistory("2025-10-30", "Sinus infection", "Nasal spray and rest"));
+
+        // Test oldest to newest records
+        System.out.println("\nTesting Patient History:");
+
+        historyList.displayOldest();
+        historyList.displayNewest();
+
+        // Testing navigation through patient history
+        System.out.println("\nTesting history navigation:");
+
+        historyList.displayOldest();
+
+        // Move forward
+        historyList.nextRecord();
+        historyList.nextRecord();
+
+        // Move backward
+        historyList.prevRecord();
+
+        // Testing history boundary conditions
+        System.out.println("\nTesting history boundaries:");
+
+        // Try moving before the oldest record
+        historyList.displayOldest();
+        historyList.prevRecord();
+
+        // Try moving after the newest record
+        historyList.displayNewest();
+        historyList.nextRecord();
+
+        // PATIENT MANAGEMENT SYSTEM MENU
+        int choice = -1;
+
+        while (choice != 0) {
+            System.out.println("\n===== Patient Management System =====");
+            System.out.println("1. Add Patient to Queue");
+            System.out.println("2. Serve Next Patient");
+            System.out.println("3. Insert Emergency Patient");
+            System.out.println("4. Display Waiting Queue");
+            System.out.println("5. Display Oldest History Record");
+            System.out.println("6. Display Newest History Record");
+            System.out.println("7. Next History Record");
+            System.out.println("8. Previous History Record");
+            System.out.println("0. Exit");
+
+            System.out.println("Enter your choice: ");
+            choice = scanner.nextInt();
+
+            // Handle menu choices
+            switch (choice) {
+                case 4:
+                    patientQueue.displayQueue();
+                    break;
+                case 5:
+                    historyList.displayOldest();
+                    break;
+                case 6:
+                    historyList.displayNewest();
+                    break;
+                case 7:
+                    historyList.nextRecord();
+                    break;
+                case 8:
+                    historyList.prevRecord();
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
+        }
+        System.out.println("Exiting Patient Management System...");
     }
 }

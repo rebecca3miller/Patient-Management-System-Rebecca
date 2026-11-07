@@ -57,4 +57,28 @@ public class PatientHistoryList {
             System.out.println(current.history);
         }
     }
+
+    // Display the oldest patient history record
+    public void displayOldest() {
+        if (isEmpty()) {
+            System.out.println("Patient History is Empty");
+        } else {
+            current = head;
+            System.out.println("Oldest patient history record:");
+            System.out.println(current.history);
+
+        }
+    }
+
+    // Display the newest patient history record
+    public void displayNewest() {
+        if (isEmpty()) {
+            System.out.println("Patient History is Empty");
+        } else {
+            current = tail;
+            System.out.println("Newest patient history record:");
+            System.out.println(current.history);
+
+        }
+    }
 }
