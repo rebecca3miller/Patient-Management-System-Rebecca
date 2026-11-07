@@ -210,6 +210,28 @@ public class Main {
 
             // Handle menu choices
             switch (choice) {
+                case 1:
+                    System.out.print("Enter Patient ID: ");
+                    int patientID = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Enter Patient Name: ");
+                    String patientName = scanner.nextLine();
+
+                    System.out.print("Enter Reason for Visit: ");
+                    String reason = scanner.nextLine();
+
+                    Patient newPatient = new Patient(patientID, patientName, reason);
+                    patientQueue.enqueue(newPatient);
+                    break;
+                case 2:
+                    Patient nextPatient = patientQueue.dequeue();
+
+                    if (nextPatient != null) {
+                        System.out.print("Now serving patient");
+                        System.out.println(nextPatient);
+                    }
+                    break;
                 case 4:
                     patientQueue.displayQueue();
                     break;
