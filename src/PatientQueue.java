@@ -52,4 +52,33 @@ public class PatientQueue {
             }
         }
     }
+
+    // Insert emergency patient at a specific position
+    public void insertEmergency(Patient patient, int position){
+        if (isFull()){
+            System.out.println("Patient Queue is full");
+            return;
+        }
+        if (position < 1 || position > size + 1) {
+            System.out.println("Invalid position");
+            return;
+        }
+
+        // Move patients to make room
+        for (int i = size; i >= position; i--) {
+            int currentIndex = (front + i) % queue.length;
+            int previousIndex = (front + i - 1) % queue.length;
+
+            queue[currentIndex] = queue[previousIndex];
+        }
+
+        // Insert emergency patient
+        int index = (front + position - 1) % queue.length;
+        queue[index] = patient;
+
+        size++;
+        rear = (front + size - 1) % queue.length;
+
+        System.out.println("Emergency patient added to position " + position);
+    }
 }

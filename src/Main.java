@@ -125,5 +125,23 @@ public class Main {
 
         System.out.println("\nPatients after adding:");
         testQueue.displayQueue();
+
+        // Test emergency patient insertion
+        System.out.println("\nTesting emergency patient insertion:");
+
+        PatientQueue emergencyQueue = new PatientQueue();
+
+        emergencyQueue.enqueue(new Patient(201, "Sarah", "Fever"));
+        emergencyQueue.enqueue(new Patient(202, "John", "Checkup"));
+        emergencyQueue.enqueue(new Patient(203, "Emily", "Headache"));
+
+        // Insert emergency patient at position 2
+        Patient emergencyPatient = new Patient(204, "Mark", "Emergency");
+        emergencyQueue.insertEmergency(emergencyPatient, 2);
+
+        // Display updated queue
+        System.out.println("\nPatients after emergency insertion");
+        emergencyQueue.displayQueue();
+
     }
 }
