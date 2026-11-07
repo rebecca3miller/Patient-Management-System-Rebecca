@@ -58,4 +58,38 @@ public class PatientDoublyLinkedList {
             }
         }
     }
+
+    // Remove patient by ID
+    public void removePatient(int patientId) {
+        if (isEmpty()) {
+            System.out.println("Patient list is empty");
+            return;
+        }
+
+        PatientNode tempNode = head;
+
+        while (tempNode != null) {
+            if (tempNode.patient.getPatientId() == patientId) {
+
+                if (tempNode == head) {
+                    head = tempNode.next;
+                }
+                if (tempNode == tail) {
+                    tail = tempNode.prev;
+                }
+                if (tempNode.prev != null) {
+                    tempNode.prev.next = tempNode.next;
+                }
+                if (tempNode.next != null) {
+                    tempNode.next.prev = tempNode.prev;
+                }
+
+                size--;
+                System.out.println("Patient removed from the list");
+                return;
+            }
+            tempNode = tempNode.next;
+        }
+        System.out.println("Patient not found");
+    }
 }

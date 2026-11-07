@@ -44,5 +44,17 @@ public class Main {
         // Display patients backwards
         System.out.println("\nPatients in reverse order:");
         patientList.displayPatientsBackward();
+
+        // Remove patient from the list
+        System.out.println("\nRemoving Patient ID 5:");
+        patientList.removePatient(5);
+
+        // Display remaining patient in the list
+        System.out.println("\nRemaining Patients:");
+        patientList.displayPatients();
+
+        // Display patients backwards
+        System.out.println("\nRemaining patients in reverse order:");
+        patientList.displayPatientsBackward();
     }
 }
