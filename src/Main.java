@@ -228,9 +228,27 @@ public class Main {
                     Patient nextPatient = patientQueue.dequeue();
 
                     if (nextPatient != null) {
-                        System.out.print("Now serving patient");
+                        System.out.print("Now serving patient:");
                         System.out.println(nextPatient);
                     }
+                    break;
+                case 3:
+                    System.out.print("Enter Patient ID: ");
+                    int emergencyID = scanner.nextInt();
+                    scanner.nextLine();
+
+                    System.out.print("Enter Patient Name: ");
+                    String emergencyName = scanner.nextLine();
+
+                    System.out.print("Enter Reason for Visit: ");
+                    String emergencyReason = scanner.nextLine();
+
+                    System.out.print("Enter Queue Position: ");
+                    int position = scanner.nextInt();
+
+                    Patient newEmergencyPatient = new Patient(emergencyID, emergencyName, emergencyReason);
+
+                    patientQueue.insertEmergency(newEmergencyPatient,  position);
                     break;
                 case 4:
                     patientQueue.displayQueue();
