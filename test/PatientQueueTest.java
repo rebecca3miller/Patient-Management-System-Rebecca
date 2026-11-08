@@ -45,4 +45,15 @@ public class PatientQueueTest {
 
         assertEquals(103, firstPatient.getPatientId());
     }
+
+    @Test
+    public void testEmptyQueue() {
+        PatientQueue queue = new PatientQueue();
+
+        assertTrue(queue.isEmpty());
+
+        assertNull(queue.dequeue());
+    }
+
+
 }
